@@ -29,20 +29,20 @@
   nav.main a.active{color:var(--green-dark);border-bottom-color:var(--green)}
   .burger{display:none;margin-left:auto;background:none;border:1px solid #ccc;border-radius:6px;font-size:1.4rem;padding:.1rem .55rem;cursor:pointer;color:var(--ink)}
 
-  .page-title{background:var(--bg-soft);border-bottom:1px solid var(--line)}
-  .page-title .in{max-width:1080px;margin:0 auto;padding:2.6rem 1.2rem}
-  .page-title h1{font-size:2rem;font-weight:800}
-  .page-title p{color:var(--muted);margin-top:.3rem}
+  .page-title .in{max-width:1080px;margin:0 auto;padding:2.4rem 1.2rem 0}
+  .page-title h1{font-size:1.8rem;font-weight:800}
+  .page-title p{color:var(--muted);margin-top:.2rem}
 
-  main .in{max-width:1080px;margin:0 auto;padding:3rem 1.2rem}
+  main .in{max-width:1080px;margin:0 auto;padding:1.8rem 1.2rem 3rem}
   h2{font-size:1.5rem;font-weight:800;margin-bottom:1rem}
   p + p{margin-top:1rem}
   .lead{font-size:1.12rem}
 
   .btn{display:inline-block;background:var(--green);color:#fff;font-weight:700;text-decoration:none;padding:.75rem 1.6rem;border-radius:6px}
   .btn:hover{background:var(--green-dark)}
-  .btn.outline{background:#fff;color:var(--green-dark);border:2px solid var(--green)}
-  .btn.outline:hover{background:var(--bg-soft)}
+  .btn.outline{background:#fff;color:var(--ink);border:1px solid #c9c9c9}
+  .btn.outline:hover{border-color:#999;background:#fafafa}
+  .btn.sm{padding:.5rem 1.1rem;font-size:.9rem;font-weight:600}
 
   /* Start */
   .hero{background:var(--bg-soft);border-bottom:1px solid var(--line)}
@@ -61,25 +61,18 @@
 
   /* Leistungen */
   .services{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
-  .service{border:1px solid var(--line);border-left:4px solid var(--green);border-radius:6px;padding:1.2rem 1.4rem;background:#fff}
+  .service{border:1px solid var(--line);border-radius:6px;padding:1.2rem 1.4rem;background:#fff}
   .service h3{font-size:1.08rem;margin-bottom:.25rem}
   .service p{color:var(--muted);font-size:.95rem}
 
-  /* Slideshow (Startseite) */
-  .slider-sec h2{text-align:center}
-  .slider-sec .more{text-align:center;margin-top:1.6rem}
-  .slider{position:relative;max-width:920px;margin:1.6rem auto 0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#000}
-  .slide{display:none}
-  .slide.on{display:block}
-  .slide img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
-  .slide .cap{position:absolute;left:0;right:0;bottom:0;background:rgba(0,0,0,.55);color:#fff;padding:.6rem 1rem;font-weight:600;font-size:.95rem}
-  .slider .arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.85);border:none;width:42px;height:42px;border-radius:50%;font-size:1.3rem;cursor:pointer;color:var(--ink);line-height:1}
-  .slider .arrow:hover{background:#fff}
-  .slider .prev{left:12px}
-  .slider .next{right:12px}
-  .dots{display:flex;gap:.5rem;justify-content:center;margin-top:1rem}
-  .dots button{width:11px;height:11px;border-radius:50%;border:none;background:#d5d5d5;cursor:pointer;padding:0}
-  .dots button.on{background:var(--green)}
+  /* Bildreihe (Startseite) – läuft automatisch durch */
+  .strip-sec .more{text-align:center;margin-top:1.4rem}
+  .strip{overflow:hidden}
+  .strip .track{display:flex;width:max-content;animation:stripmove 45s linear infinite}
+  .strip:hover .track{animation-play-state:paused}
+  .strip img{height:230px;aspect-ratio:4/3;object-fit:cover;border-radius:6px;margin-right:1rem;display:block}
+  @keyframes stripmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(max-width:860px){.strip img{height:160px}}
 
   /* Referenzen */
   .refs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
@@ -176,11 +169,11 @@
   
 </div></div>
 
-<main><div class="in" style="max-width:820px">
+<main><div class="in"><div style="max-width:46rem">
   <p class="lead">SchmitzDie Hausmeisterservice ist Ihr Ansprechpartner rund um Haus und Grundstück in Bad Neuenahr-Ahrweiler und Umgebung.</p>
   <p>Ob regelmäßige Objektbetreuung oder einmaliger Einsatz: Wir arbeiten zuverlässig, sauber und zu fairen Preisen. Sie haben bei uns einen festen Ansprechpartner – von der ersten Anfrage bis zur erledigten Arbeit.</p>
   <p style="margin-top:2rem"><a class="btn" href="kontakt.html">Kontakt aufnehmen</a></p>
-</div></main>
+</div></div></main>
 
 
 <footer class="site">
