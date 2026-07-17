@@ -68,11 +68,16 @@
   .service h3{font-size:1.08rem;margin-bottom:.25rem}
   .service p{color:var(--muted);font-size:.95rem}
 
-  /* Bildreihe (Startseite) – rückt alle paar Sekunden ein Bild weiter */
+  /* Bildreihe (Startseite) – rückt alle paar Sekunden ein Bild weiter, Endlosschleife,
+     links und rechts jeweils angeschnittenes Bild */
   .strip-sec .more{text-align:center;margin-top:1.4rem}
-  .strip{overflow:hidden}
+  .strip{overflow:hidden;position:relative}
   .strip .track{display:flex;width:max-content}
   .strip img{height:230px;aspect-ratio:4/3;object-fit:cover;border-radius:6px;margin-right:1rem;display:block}
+  .strip .arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid #ccc;background:rgba(255,255,255,.92);color:var(--ink);font-size:1.25rem;line-height:1;cursor:pointer;z-index:2}
+  .strip .arrow:hover{background:#fff;border-color:#999}
+  .strip .prev{left:10px}
+  .strip .next{right:10px}
   @media(max-width:860px){.strip img{height:160px}}
 
   /* Referenzen */
@@ -203,7 +208,7 @@
 </div></div>
 
 <main><div class="in strip-sec">
-  <div class="strip">
+  <div class="strip" id="strip">
     <div class="track" id="track">
       <img src="images/referenzen/referenz-1.jpg" alt="Gartenpflege">
       <img src="images/referenzen/referenz-2.jpg" alt="Dacharbeiten">
@@ -217,33 +222,54 @@
       <img src="images/referenzen/referenz-4.jpg" alt="Reparaturen">
       <img src="images/referenzen/referenz-5.jpg" alt="Entrümpelung">
       <img src="images/referenzen/referenz-6.jpg" alt="Solar">
+      <img src="images/referenzen/referenz-1.jpg" alt="Gartenpflege">
+      <img src="images/referenzen/referenz-2.jpg" alt="Dacharbeiten">
+      <img src="images/referenzen/referenz-3.jpg" alt="Außenanlagen">
+      <img src="images/referenzen/referenz-4.jpg" alt="Reparaturen">
+      <img src="images/referenzen/referenz-5.jpg" alt="Entrümpelung">
+      <img src="images/referenzen/referenz-6.jpg" alt="Solar">
     </div>
+    <button class="arrow prev" id="sprev" aria-label="Zurück">&#10094;</button>
+    <button class="arrow next" id="snext" aria-label="Weiter">&#10095;</button>
   </div>
   <p class="more"><a class="btn outline sm" href="referenzen.html">Referenzen ansehen</a></p>
 </div></main>
 
 <script>
   (function(){
+    var strip = document.getElementById('strip');
     var track = document.getElementById('track');
-    var count = track.children.length / 2;   // Bilder sind doppelt vorhanden
-    var cur = 0;
+    var count = track.children.length / 3;   // Bilder sind dreifach vorhanden
+    var cur = count;                          // Start in der mittleren Kopie
+    var timer;
+
     function stepWidth(){
       var img = track.children[0];
       return img.offsetWidth + parseFloat(getComputedStyle(img).marginRight);
     }
-    setInterval(function(){
-      cur++;
-      track.style.transition = 'transform .6s ease';
-      track.style.transform = 'translateX(' + (-cur * stepWidth()) + 'px)';
-      if (cur === count) {
-        // nach der Animation unsichtbar an den Anfang zurückspringen
-        setTimeout(function(){
-          track.style.transition = 'none';
-          track.style.transform = 'translateX(0)';
-          cur = 0;
-        }, 650);
-      }
-    }, 4000);
+    // halbes Bild Versatz: links und rechts ist je ein Foto angeschnitten
+    function apply(animate){
+      var s = stepWidth();
+      track.style.transition = animate ? 'transform .5s ease' : 'none';
+      track.style.transform = 'translateX(' + (-(cur * s + s / 2)) + 'px)';
+    }
+    function go(d){
+      cur += d;
+      apply(true);
+      setTimeout(function(){
+        if (cur >= count * 2) { cur -= count; apply(false); }
+        else if (cur < count) { cur += count; apply(false); }
+      }, 550);
+    }
+    function startTimer(){
+      clearInterval(timer);
+      timer = setInterval(function(){ go(1); }, 4000);
+    }
+    document.getElementById('sprev').addEventListener('click', function(){ go(-1); startTimer(); });
+    document.getElementById('snext').addEventListener('click', function(){ go(1); startTimer(); });
+    window.addEventListener('resize', function(){ apply(false); });
+    apply(false);
+    startTimer();
   })();
 </script>
 
