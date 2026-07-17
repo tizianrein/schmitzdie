@@ -73,7 +73,7 @@
   .strip-sec .more{text-align:center;margin-top:1.4rem}
   .strip{overflow:hidden;position:relative}
   .strip .track{display:flex;width:max-content}
-  .strip img{height:230px;aspect-ratio:4/3;object-fit:cover;border-radius:6px;margin-right:1rem;display:block}
+  .strip img{height:250px;aspect-ratio:1/1;object-fit:cover;border-radius:6px;margin-right:1rem;display:block}
   .strip .arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid #ccc;background:rgba(255,255,255,.92);color:var(--ink);font-size:1.25rem;line-height:1;cursor:pointer;z-index:2}
   .strip .arrow:hover{background:#fff;border-color:#999}
   .strip .prev{left:10px}
@@ -81,9 +81,9 @@
   @media(max-width:860px){.strip img{height:160px}}
 
   /* Referenzen */
-  .refs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  .refs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;align-items:start}
   .ref{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
-  .ref img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .ref img{width:100%;height:auto;display:block}
   .ref .cap{padding:.8rem 1rem;font-weight:600;font-size:.95rem}
   .note{background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;padding:1.1rem 1.3rem;color:var(--muted);margin-top:1.8rem;font-size:.95rem}
 
@@ -210,24 +210,36 @@
 <main><div class="in strip-sec">
   <div class="strip" id="strip">
     <div class="track" id="track">
-      <img src="images/referenzen/referenz-1.jpg" alt="Gartenpflege">
-      <img src="images/referenzen/referenz-2.jpg" alt="Dacharbeiten">
-      <img src="images/referenzen/referenz-3.jpg" alt="Außenanlagen">
-      <img src="images/referenzen/referenz-4.jpg" alt="Reparaturen">
-      <img src="images/referenzen/referenz-5.jpg" alt="Entrümpelung">
-      <img src="images/referenzen/referenz-6.jpg" alt="Solar">
-      <img src="images/referenzen/referenz-1.jpg" alt="Gartenpflege">
-      <img src="images/referenzen/referenz-2.jpg" alt="Dacharbeiten">
-      <img src="images/referenzen/referenz-3.jpg" alt="Außenanlagen">
-      <img src="images/referenzen/referenz-4.jpg" alt="Reparaturen">
-      <img src="images/referenzen/referenz-5.jpg" alt="Entrümpelung">
-      <img src="images/referenzen/referenz-6.jpg" alt="Solar">
-      <img src="images/referenzen/referenz-1.jpg" alt="Gartenpflege">
-      <img src="images/referenzen/referenz-2.jpg" alt="Dacharbeiten">
-      <img src="images/referenzen/referenz-3.jpg" alt="Außenanlagen">
-      <img src="images/referenzen/referenz-4.jpg" alt="Reparaturen">
-      <img src="images/referenzen/referenz-5.jpg" alt="Entrümpelung">
-      <img src="images/referenzen/referenz-6.jpg" alt="Solar">
+      <img src="images/referenzen/referenz-1.jpg" alt="Dachsanierung – vorher / nachher">
+      <img src="images/referenzen/referenz-2.jpg" alt="Solaranlage auf Flachdach">
+      <img src="images/referenzen/referenz-3.jpg" alt="Gartenpflege – vorher / nachher">
+      <img src="images/referenzen/referenz-4.jpg" alt="Vordach – fertiggestellt">
+      <img src="images/referenzen/referenz-5.jpg" alt="Dachreinigung – vorher">
+      <img src="images/referenzen/referenz-6.jpg" alt="Dachreinigung – nachher">
+      <img src="images/referenzen/referenz-7.jpg" alt="Flachdach-Abdichtung">
+      <img src="images/referenzen/referenz-8.jpg" alt="Heckenschnitt – vorher / nachher">
+      <img src="images/referenzen/referenz-9.jpg" alt="Dachsanierung Giebelseite – vorher / nachher">
+      <img src="images/referenzen/referenz-10.jpg" alt="Vordach – Holzkonstruktion">
+      <img src="images/referenzen/referenz-1.jpg" alt="Dachsanierung – vorher / nachher">
+      <img src="images/referenzen/referenz-2.jpg" alt="Solaranlage auf Flachdach">
+      <img src="images/referenzen/referenz-3.jpg" alt="Gartenpflege – vorher / nachher">
+      <img src="images/referenzen/referenz-4.jpg" alt="Vordach – fertiggestellt">
+      <img src="images/referenzen/referenz-5.jpg" alt="Dachreinigung – vorher">
+      <img src="images/referenzen/referenz-6.jpg" alt="Dachreinigung – nachher">
+      <img src="images/referenzen/referenz-7.jpg" alt="Flachdach-Abdichtung">
+      <img src="images/referenzen/referenz-8.jpg" alt="Heckenschnitt – vorher / nachher">
+      <img src="images/referenzen/referenz-9.jpg" alt="Dachsanierung Giebelseite – vorher / nachher">
+      <img src="images/referenzen/referenz-10.jpg" alt="Vordach – Holzkonstruktion">
+      <img src="images/referenzen/referenz-1.jpg" alt="Dachsanierung – vorher / nachher">
+      <img src="images/referenzen/referenz-2.jpg" alt="Solaranlage auf Flachdach">
+      <img src="images/referenzen/referenz-3.jpg" alt="Gartenpflege – vorher / nachher">
+      <img src="images/referenzen/referenz-4.jpg" alt="Vordach – fertiggestellt">
+      <img src="images/referenzen/referenz-5.jpg" alt="Dachreinigung – vorher">
+      <img src="images/referenzen/referenz-6.jpg" alt="Dachreinigung – nachher">
+      <img src="images/referenzen/referenz-7.jpg" alt="Flachdach-Abdichtung">
+      <img src="images/referenzen/referenz-8.jpg" alt="Heckenschnitt – vorher / nachher">
+      <img src="images/referenzen/referenz-9.jpg" alt="Dachsanierung Giebelseite – vorher / nachher">
+      <img src="images/referenzen/referenz-10.jpg" alt="Vordach – Holzkonstruktion">
     </div>
     <button class="arrow prev" id="sprev" aria-label="Zurück">&#10094;</button>
     <button class="arrow next" id="snext" aria-label="Weiter">&#10095;</button>
