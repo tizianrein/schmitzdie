@@ -8,6 +8,9 @@
 <style>
   :root{ --green:#8DC63F; --green-dark:#6ca329; --ink:#232323; --muted:#666; --line:#e6e6e6; --bg-soft:#f6f8f3; }
   *{margin:0;padding:0;box-sizing:border-box}
+  /* Scrollbar ausblenden (Scrollen per Rad/Touch funktioniert weiter) */
+  html{scrollbar-width:none;-ms-overflow-style:none}
+  html::-webkit-scrollbar{display:none;width:0}
   body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.7;font-size:17px}
   a{color:var(--green-dark)}
   img{max-width:100%}
@@ -65,13 +68,11 @@
   .service h3{font-size:1.08rem;margin-bottom:.25rem}
   .service p{color:var(--muted);font-size:.95rem}
 
-  /* Bildreihe (Startseite) – läuft automatisch durch */
+  /* Bildreihe (Startseite) – rückt alle paar Sekunden ein Bild weiter */
   .strip-sec .more{text-align:center;margin-top:1.4rem}
   .strip{overflow:hidden}
-  .strip .track{display:flex;width:max-content;animation:stripmove 45s linear infinite}
-  .strip:hover .track{animation-play-state:paused}
+  .strip .track{display:flex;width:max-content}
   .strip img{height:230px;aspect-ratio:4/3;object-fit:cover;border-radius:6px;margin-right:1rem;display:block}
-  @keyframes stripmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   @media(max-width:860px){.strip img{height:160px}}
 
   /* Referenzen */
